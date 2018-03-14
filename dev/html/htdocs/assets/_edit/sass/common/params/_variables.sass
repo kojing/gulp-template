@@ -1,0 +1,251 @@
+//------------------------------------------------------
+// COMMON MARGIN
+//------------------------------------------------------
+
+$COMMON_SIDE_MARGIN_BASE: 50px
+$COMMON_SIDE_MARGIN_LG: 50px
+$COMMON_SIDE_MARGIN_MD: 50px
+$COMMON_SIDE_MARGIN_SM: 30px
+$COMMON_SIDE_MARGIN_XS: 30px
+
+$COMMON_VERTICAL_MARGIN: 80px
+
+$MARGIN_TRANSITION_DELAY: 0.5s
+
+//------------------------------------------------------
+// HEADER
+//------------------------------------------------------
+
+$HEADER_HEIGHT			: 155px
+$HEADER_HEIGHT_SP		: 90px
+
+$HEADER_HEIGHT_MIN 	: 80px
+
+//------------------------------------------------------
+// FOOTER
+//------------------------------------------------------
+
+$FOOTER_HEIGHT			: 390px
+$FOOTER_HEIGHT_SP		: 1500px
+
+//------------------------------------------------------
+// Z-INDEX グループ
+//------------------------------------------------------
+
+$Z-INDEX_BASE			:   0
+$Z-INDEX_POPUP		: 300
+$Z-INDEX_HEADER		: 200
+$Z-INDEX_CONTENT	:  50
+$Z-INDEX_FOOTER		: 100
+
+
+//------------------------------------------------------
+// カラー
+//------------------------------------------------------
+
+$COLOR_GS_100 : #FFF
+$COLOR_GS_090 : #f5f5f5
+// $COLOR_GS_090 : #e5e5e5
+$COLOR_GS_030 : #66666c
+$COLOR_GS_020 : #44444b
+$COLOR_GS_015 : #333
+$COLOR_GS_010 : #2f2f33
+$COLOR_GS_000 : #000
+
+
+//------------------------------------------------------
+// フォントファミリー
+//------------------------------------------------------
+
+
+@mixin font-jp
+	font-family: "游明朝", "YuMincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif
+
+@mixin font-jp-light
+	font-family: "游明朝 Light", "YuMincho-Light", "游明朝", "YuMincho", "ヒラギノ明朝 ProN W1", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif
+	font-weight: 200
+
+@mixin font-en-gm
+	font-family: serif
+
+@mixin font-en
+	font-family: sans-serif
+
+
+//------------------------------------------------------
+// フォントセット
+//------------------------------------------------------
+
+%en-18px
+	@include font-en
+	color: $COLOR_GS_015
+	font-size: 22px
+	line-height: 22px
+	white-space: nowrap
+	vertical-align: top
+	letter-spacing: 0.05em
+	-webkit-font-smoothing: antialiased
+
+
+%en-14px
+	@include font-en
+	color: $COLOR_GS_015
+	font-size: 14px
+	line-height: 14px
+	white-space: nowrap
+	vertical-align: top
+	letter-spacing: 0.05em
+	-webkit-font-smoothing: antialiased
+
+	@include mq(("xs"))
+		font-size: 16px
+		line-height: 16px
+
+%jp-36px
+	@include font-jp-light
+	font-size: 36px
+	line-height: 36px
+	color: $COLOR_GS_015
+	letter-spacing: 0.1em
+	-webkit-font-smoothing: antialiased
+
+%jp-32px
+	@include font-jp-light
+	font-size: 30px
+	line-height: 30px
+	color: $COLOR_GS_015
+	letter-spacing: 0.06em
+	white-space: nowrap
+	-webkit-font-smoothing: antialiased
+
+	@include mq(("xs"))
+		font-size: 36px
+		line-height: 36px
+
+
+	&.en
+		@include font-en-gm
+		-webkit-font-smoothing: antialiased
+		letter-spacing: 0.01em
+		font-size: 30px
+		font-weight: 400
+
+		@include mq(("xs"))
+			font-size: 36px
+			line-height: 36px
+
+
+%jp-18px
+	@include font-jp
+	color: $COLOR_GS_015
+	font-size: 18px
+	line-height: 60px
+	white-space: nowrap
+	letter-spacing: 0.1em
+	vertical-align: top
+	-webkit-font-smoothing: antialiased
+	writing-mode: vertical-rl
+
+	u
+		font-size: 17px
+		letter-spacing: 0.02em
+		text-decoration: none
+
+	i
+		margin: -11px 0 0 0
+		text-decoration: none
+
+
+	@include mq("lg")
+		font-size: 16px
+		line-height: 50px
+
+	@include mq("md")
+		font-size: 16px
+		line-height: 45px
+
+	@include mq(("sm"))
+		font-size: 16px
+		line-height: 42px
+
+	@include mq(("xs"))
+		font-size: 22px
+		line-height: 56px
+		letter-spacing: 0.1em
+		writing-mode: horizontal-tb
+
+		u
+			font-size: 25px
+			letter-spacing: 0.02em
+			text-decoration: none
+
+		i
+			margin: 0 0 0 -10px
+			text-decoration: none
+
+	&.en
+		@include font-en-gm
+		-webkit-font-smoothing: auto
+		writing-mode: horizontal-tb
+		letter-spacing: 0.01em
+		line-height: 48px
+		font-weight: 400
+
+		@include mq("lg")
+			font-size: 16px
+
+		@include mq("md")
+			font-size: 16px
+
+		@include mq(("sm"))
+			font-size: 16px
+
+		@include mq(("xs"))
+			font-size: 20px
+
+%jp-16px
+	@include font-jp
+	font-size: 16px
+	line-height: 38px
+	color: $COLOR_GS_015
+	text-align: justify
+	letter-spacing: 0.08em
+	-webkit-font-smoothing: antialiased
+
+	@include mq(("xs"))
+		font-size: 18px
+		line-height: 42px
+
+
+%jp-14px
+	@include font-jp
+	font-size: 14px
+	line-height: 32px
+	color: $COLOR_GS_015
+	text-align: justify
+	letter-spacing: 0.08em
+	-webkit-font-smoothing: antialiased
+
+	&.en
+		@include font-en-gm
+		-webkit-font-smoothing: auto
+		writing-mode: horizontal-tb
+		letter-spacing: 0.04em
+		line-height: 2em
+		text-align: left
+		font-weight: 400
+
+
+	@include mq(("xs"))
+		font-size: 18px
+		line-height: 42px
+
+%jp-12px
+	@include font-jp
+	font-size: 12px
+	line-height: 24px
+	color: $COLOR_GS_010
+
+	@include mq(("xs"))
+		font-size: 16px
+		line-height: 32px

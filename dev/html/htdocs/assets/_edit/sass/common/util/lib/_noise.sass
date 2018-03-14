@@ -1,0 +1,66 @@
+@mixin noise
+	z-index: $Z-INDEX_CONTENT+5
+	position: absolute
+	width: 150%
+	height: 150%
+	margin: 0
+	padding: 0
+	letter-spacing: 0
+	line-height: 0
+	font-size: 0
+	opacity: 0.75
+	top: 0
+	left: 0
+
+	pointer-events: none
+
+
+	div
+		position: absolute
+		width: 100%
+		height: 100%
+		margin: 0
+		padding: 0
+		letter-spacing: 0
+		line-height: 0
+		font-size: 0
+
+	@for $i from 0 through 30
+		&.n#{$i}
+			$x_: - percentage(random(25)*0.01)
+			$y_: - percentage(random(25)*0.01)
+			transform: translate($x_, $y_)
+			@if $i%2 == 0
+				.noise0
+					opacity: 1
+			@else
+				.noise1
+					opacity: 1
+
+	.noise0
+		background: url("/assets/images/common/noise01.png") repeat
+		opacity: 0
+
+	.noise1
+		background: url("/assets/images/common/noise02.png") repeat
+		opacity: 0
+
+	.noise2
+		background: url("/assets/images/common/noise03.png") repeat
+		opacity: 0
+
+	.noise3
+		// background: url("/assets/images/common/noise04.png") repeat
+		// opacity: 0
+
+	.noise4
+		// background: url("/assets/images/common/noise05.png") repeat
+		// opacity: 0
+
+	.noise5
+		// background: url("/assets/images/common/noise06.png") repeat
+		// opacity: 0
+
+	.noise6
+		// background: url("/assets/images/common/noise07.png") repeat
+		// opacity: 0

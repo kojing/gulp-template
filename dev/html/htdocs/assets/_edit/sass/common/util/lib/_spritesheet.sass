@@ -1,0 +1,106 @@
+//--------------------------------------------------------------
+//スプライトシート
+//--------------------------------------------------------------
+
+@import "compass/css3/background-size"
+$sprites: sprite-map("_sprites/*.png", $spacing:4px, $layout: vertical)
+$sprites-img: sprite-url($sprites)
+
+
+//解像度4倍 実サイズの1/4
+@mixin sprite-background-4x($name, $important:0)
+	@if $important == 0
+		width: image-width(sprite-file($sprites, $name))/4
+		height: image-height(sprite-file($sprites, $name))/4
+	@else
+		width: image-width(sprite-file($sprites, $name))/4 !important
+		height: image-height(sprite-file($sprites, $name))/4 !important
+
+	$xpos: nth(sprite-position($sprites, $name), 1)/4
+	$ypos: nth(sprite-position($sprites, $name), 2)/4
+	background-image: $sprites-img
+	background-position: $xpos $ypos
+	background-repeat: repeat
+	$wbgz: image-width(sprite-path($sprites))/4
+	@include background-size($wbgz, auto)
+
+
+
+//解像度3倍 実サイズの1/3
+@mixin sprite-background-3x($name, $important:0)
+	@if $important == 0
+		width: image-width(sprite-file($sprites, $name))/3
+		height: image-height(sprite-file($sprites, $name))/3
+	@else
+		width: image-width(sprite-file($sprites, $name))/3 !important
+		height: image-height(sprite-file($sprites, $name))/3 !important
+
+	$xpos: nth(sprite-position($sprites, $name), 1)/3
+	$ypos: nth(sprite-position($sprites, $name), 2)/3
+	background-image: $sprites-img
+	background-position: $xpos $ypos
+	background-repeat: repeat
+	$wbgz: image-width(sprite-path($sprites))/3
+	@include background-size($wbgz, auto)
+
+
+//解像度2倍 実サイズの1/2
+@mixin sprite-background-2x($name, $important:0)
+	@if $important == 0
+		width: image-width(sprite-file($sprites, $name))/2
+		height: image-height(sprite-file($sprites, $name))/2
+	@else
+		width: image-width(sprite-file($sprites, $name))/2 !important
+		height: image-height(sprite-file($sprites, $name))/2 !important
+
+	$xpos: nth(sprite-position($sprites, $name), 1)/2
+	$ypos: nth(sprite-position($sprites, $name), 2)/2
+	background-image: $sprites-img
+	background-position: $xpos $ypos
+	background-repeat: repeat
+	$wbgz: image-width(sprite-path($sprites))/2
+	@include background-size($wbgz, auto)
+
+
+//解像度1倍 実サイズの1/1
+@mixin sprite-background($name, $important:0)
+	@if $important == 0
+		width: image-width(sprite-file($sprites, $name))
+		height: image-height(sprite-file($sprites, $name))
+	@else
+		width: image-width(sprite-file($sprites, $name))/2 !important
+		height: image-height(sprite-file($sprites, $name))/2 !important
+
+	$xpos: nth(sprite-position($sprites, $name), 1)
+	$ypos: nth(sprite-position($sprites, $name), 2)
+	background-image: $sprites-img
+	background-position: $xpos $ypos
+	background-repeat: repeat
+	$wbgz: image-width(sprite-path($sprites))
+	@include background-size($wbgz, auto)
+
+
+//解像度指定 実サイズの1/$scale
+@mixin sprite-background-scaling($name,$scale)
+	width: image-width(sprite-file($sprites, $name))*$scale
+	height: image-height(sprite-file($sprites, $name))*$scale
+	$xpos: nth(sprite-position($sprites, $name), 1)*$scale
+	$ypos: nth(sprite-position($sprites, $name), 2)*$scale
+	background-image: $sprites-img
+	background-position: $xpos $ypos
+	background-repeat: repeat
+	$wbgz: image-width(sprite-path($sprites))*$scale
+	@include background-size($wbgz, auto)
+
+
+//解像度,サイズ,切り抜き位置指定 実サイズの1/$scale
+@mixin sprite-background-custom($name,$scale,$w,$h,$shiftX:0,$shiftY:0)
+	width: $w
+	height: $h
+	$xpos: nth(sprite-position($sprites, $name), 1)*$scale - $shiftX
+	$ypos: nth(sprite-position($sprites, $name), 2)*$scale - $shiftY
+	background-image: $sprites-img
+	background-position: $xpos $ypos
+	background-repeat: repeat
+	$wbgz: image-width(sprite-path($sprites))*$scale
+	@include background-size($wbgz, auto)

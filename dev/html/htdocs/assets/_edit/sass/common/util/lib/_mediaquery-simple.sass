@@ -1,0 +1,36 @@
+//-----------------------------------------------------------------------------
+//
+// Device Width
+// Initialize variables
+//
+//-----------------------------------------------------------------------------
+
+$SCREEN-XS: 640px
+$SCREEN-SM: 960px
+$SCREEN-MD: 1040px
+$SCREEN-LG: 1200px
+
+//-----------------------------------------------------------------------------
+//
+// Device mixin
+// @param $size : lg, md, sm, xs or $SCREEN-XS, $SCREEN-SM, $SCREEN-MD, $SCREEN-LG
+//
+//-----------------------------------------------------------------------------
+
+@mixin mq($sizes: ())
+	@each $size in $sizes
+		@if $size == xs or $size == $SCREEN-XS
+			@media screen and (min-width: 0) and (max-width: $SCREEN-XS)
+				@content
+
+		@else if $size == sm or $size == $SCREEN-SM
+			@media screen and (min-width: $SCREEN-XS + 1) and (max-width: $SCREEN-SM)
+				@content
+
+		@else if $size == md or $size == $SCREEN-MD
+			@media screen and (min-width: $SCREEN-SM + 1) and (max-width: $SCREEN-MD)
+				@content
+
+		@else if $size == lg or $size == $SCREEN-LG
+			@media screen and (min-width: $SCREEN-MD + 1) and (max-width: $SCREEN-LG)
+				@content
